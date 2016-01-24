@@ -19,5 +19,5 @@ for line in k:
     hex_dig = hash_object.hexdigest()
     if hex_dig == hex_dig2:
         print line
-        print hex_diz
+        print hex_dig
 # Project
