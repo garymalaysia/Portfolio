@@ -1,3 +1,4 @@
+@chainofcommand@
 A
 a
 aa

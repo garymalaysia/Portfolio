@@ -11,8 +11,8 @@ k=s.split()
 #hashes you are looking for
 
 #hashes=['9ed7c7b0369c6c4578071494af4b67f1','827ccb0eea8a706c4c34a16891f84e7b','74b0328a08e7d9e213b1ea77ba32198d','6f0bd5945fbd8754c1c164b7ef12df47','58812d3bf4fe604bbf2073c03f477148','9c5e221dda6e892d55524e100a3daec4']
-hashes1=['ee38347c99d9903d34cbc74b2ed21d3d6b927941', '1e1e3244cfd63d1233ce9b7a098acadbab64836f','7b7a8d8e9435d1064967f8ba2a43eee1f7804f5e','835bef07a75eb9b6ad98dcc2df9e505d119df46f','1b1a52fb9b0791e0211c2af0d3155b80ac40405b']
-#hashes=['58812d3bf4fe604bbf2073c03f477148']
+#hashes1=['ee38347c99d9903d34cbc74b2ed21d3d6b927941', '1e1e3244cfd63d1233ce9b7a098acadbab64836f','7b7a8d8e9435d1064967f8ba2a43eee1f7804f5e','835bef07a75eb9b6ad98dcc2df9e505d119df46f','1b1a52fb9b0791e0211c2af0d3155b80ac40405b']
+hashes=['f573b7dd8369faa58368bb167539106ff0e1e027']
 #k= hashlib.md5(b"TimeTest").hexdigest()
 #print (k)
 
@@ -20,6 +20,10 @@ hashes1=['ee38347c99d9903d34cbc74b2ed21d3d6b927941', '1e1e3244cfd63d1233ce9b7a09
 def hashed_md5(z):
 	hashed= hashlib.md5(b"%s" % z).hexdigest()
 	print(hashed)
+
+def ripemd(x):
+	p = hashlib.new('ripemd160', x.encode('utf-8')).hexdigest()
+	print(p)
 
 #look for md5 text
 def md5hash(x):
@@ -74,6 +78,13 @@ def openssl(x):
 			if m == x[i]:
 				print (Hash)
 
+def ripemd160(x):
+	for i in range(len(x)):
+		for Hash in k:
+			m = hashlib.new('ripemd160', Hash.encode('utf-8')).hexdigest()
+			if m == x[i]:
+				print (Hash)
+
 def arr(y):
 	for i in range(len(y)):
 		print (hashes[i])
@@ -85,10 +96,11 @@ def count(texts):
 	print (count)
 
 #md5hash(hashes)
-sha_1hash(hashes1)
+#sha_1hash(hashes)
 #sha_224hash(hashes)
 #sha_256hash(hashes)
 #sha_384hash(hashes)
 #sha_512hash(hashes)
 #openssl(hashes)
-
+ripemd160(hashes)
+#ripemd('')
